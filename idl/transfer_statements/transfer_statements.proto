@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package transfer_statements;
+option go_package = "github.com/lyfeyvutha/grpcATCbank/gen/transfer_statements";
+
+import "common/types.proto";
+
+/* TODO:
+  This file has a single service PaymentStatements.
+  The service contains a single routine CreateStatement which accepts a stream Payment and returns a PaymentStatement.
+
+  Both these types are defined in idl/common/types.proto.  
+ */
+ service TransferStatements {
+  rpc CreateStatement(stream types.Transfer)
+    returns (types.TransferStatement) {}
+}
